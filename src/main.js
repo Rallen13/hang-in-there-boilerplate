@@ -15,6 +15,10 @@ var makePosterButton = document.querySelector(".make-poster")
 var showMainButton = document.querySelector(".show-main")
 var backToMainButton = document.querySelector(".back-to-main")
 
+var posterImageUrlInput = document.querySelector('#poster-image-url')
+var posterTitleInput = document.querySelector('#poster-title')
+var posterQuoteInput = document.querySelector('#poster-quote')
+
 //variable names are based on the class names we are querying against.
 
 // we've provided you with some data to work with 👇
@@ -131,6 +135,8 @@ showSavedButton.addEventListener('click', toggleSavedAndMain)
 
 backToMainButton.addEventListener('click', toggleSavedAndMain)
 
+makePosterButton.addEventListener('click', createPoster)
+
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 
@@ -160,4 +166,8 @@ function toggleFormAndMain() {
 function toggleSavedAndMain() {
   savedPostersSection.classList.toggle("hidden")
   mainPosterSection.classList.toggle("hidden")
+}
+
+function createPoster() {
+  
 }
