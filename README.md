@@ -1,18 +1,45 @@
 # Hang In There
+---
+A boilerplate repo.
 
-A boilerplate repo. 
+## Introduction
+---
+
+## Technologies
+---
+* JavaScript
+* HTML
+* CSS
+
+## Features
+---
+
+## Illustrations
+---
+
+## Deployed Page
+---
+
+## Possible Future Extensions
+---
 
 ## Set Up
+---
+1. Fork this repo
+2. Clone the repo to your local machine
+3. View the project in the browser by running open index.html  in your terminal.
 
-1. One teammate: fork this repository
-2. Clone down your new, forked repo
-3. cd into the repository
-4. Open it in your text editor
-5. Add all project partners and your assigned instructor as collaborators on the repository
+## Sources
+---
+* [MDN](https://developer.mozilla.org/en-US/)
+* [DelftStack](https://www.delftstack.com/)
+* [w3schools](https://www.w3schools.com/)
 
-Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/hang-in-there.html)
+## Contributors
+---
+* [Rachel Allen](https://github.com/Rallen13)
+* [Victoria Fox-Collis](https://github.com/VictoriaFC)
 
-To view your project:
-
-1. In your terminal, navigate to your project repo
-2. Run the command `open index.html`
+## Project Specs
+---
+* The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-1/hang-in-there-v2.html)
