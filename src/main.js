@@ -19,8 +19,6 @@ var posterImageUrlInput = document.querySelector('#poster-image-url')
 var posterTitleInput = document.querySelector('#poster-title')
 var posterQuoteInput = document.querySelector('#poster-quote')
 
-//variable names are based on the class names we are querying against.
-
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -135,27 +133,29 @@ showSavedButton.addEventListener('click', toggleSavedAndMain)
 
 backToMainButton.addEventListener('click', toggleSavedAndMain)
 
-makePosterButton.addEventListener('click', createPoster)
+makePosterButton.addEventListener('click', function(event) {
+  event.preventDefault()
+  createPoster()
+}, true)
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 
-//this function returns a number between 0 and end of whatever array is passed through as an argument.
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-//Event handler for the showRandomButton event listener
+function setMainPoster(imageURL, title, quote) {
+  posterImg.src = imageURL
+  posterTitle.innerText = title
+  posterQuote.innerText = quote
+}
+
 function generateRandomPoster() {
   var imageURL = images[getRandomIndex(images)]
   var title = titles[getRandomIndex(titles)]
   var quote = quotes[getRandomIndex(quotes)]
-  //in order to get a random index number we invoke the getRandomIndex function within the index parameter of the array we are using.
-
-  posterImg.src = imageURL
-  posterTitle.innerText = title
-  posterQuote.innerText = quote
-  //Using the query selector variables from above we manipulate the DOM and pass in our randomly generated variables
+  setMainPoster(imageURL, title, quote)
 }
 
 function toggleFormAndMain() {
@@ -168,6 +168,18 @@ function toggleSavedAndMain() {
   mainPosterSection.classList.toggle("hidden")
 }
 
+function resetForm() {
+  posterImageUrlInput.value = null
+  posterTitleInput.value = null
+  posterQuoteInput.value = null
+}
+
 function createPoster() {
-  
+  var userPoster = new Poster(posterImageUrlInput.value, posterTitleInput.value, posterQuoteInput.value)
+  images.push(posterImageUrlInput.value)
+  titles.push(posterTitleInput.value)
+  quotes.push(posterQuoteInput.value)
+  toggleFormAndMain()
+  setMainPoster(imageURL, title, quote)
+  resetForm()
 }
