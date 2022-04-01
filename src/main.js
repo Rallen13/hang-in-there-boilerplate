@@ -180,6 +180,6 @@ function createPoster() {
   titles.push(posterTitleInput.value)
   quotes.push(posterQuoteInput.value)
   toggleFormAndMain()
-  setMainPoster(imageURL, title, quote)
+  setMainPoster(userPoster.imageURL, userPoster.title, userPoster.quote)
   resetForm()
 }
