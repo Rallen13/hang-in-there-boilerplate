@@ -19,6 +19,8 @@ var posterImageUrlInput = document.querySelector('#poster-image-url')
 var posterTitleInput = document.querySelector('#poster-title')
 var posterQuoteInput = document.querySelector('#poster-quote')
 
+var savedPostersGrid = document.querySelector('.saved-posters-grid')
+
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -133,6 +135,8 @@ showSavedButton.addEventListener('click', toggleSavedAndMain)
 
 backToMainButton.addEventListener('click', toggleSavedAndMain)
 
+savePosterButton.addEventListener('click', saveCurrentPoster)
+
 makePosterButton.addEventListener('click', function(event) {
   event.preventDefault()
   createPoster()
@@ -145,18 +149,46 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
+function saveCurrentPoster() {
+  if (!posterSavedAlready()) {
+    savedPosters.push(currentPoster)
+    savedPostersGrid.innerHTML += `
+    <div class="mini-poster">
+    <img src="${currentPoster.imageURL}" alt="nothin' to see here">
+    <h2>${currentPoster.title}</h2>
+    <h4>${currentPoster.quote}</h4>
+    </div>
+    `
+  }
+
+  toggleSavedAndMain()
+}
+
+function posterSavedAlready() {
+  for (var i = 0; i < savedPosters.length; i++) {
+    if (savedPosters[i] === currentPoster) {
+      return true
+    }
+  }
+  return false
+}
+
 function setMainPoster(imageURL, title, quote) {
-  posterImg.src = imageURL
-  posterTitle.innerText = title
-  posterQuote.innerText = quote
+  currentPoster = new Poster(imageURL, title, quote)
+
+  posterImg.src = currentPoster.imageURL
+  posterTitle.innerText = currentPoster.title
+  posterQuote.innerText = currentPoster.quote
 }
 
 function generateRandomPoster() {
   var imageURL = images[getRandomIndex(images)]
   var title = titles[getRandomIndex(titles)]
   var quote = quotes[getRandomIndex(quotes)]
+
   setMainPoster(imageURL, title, quote)
 }
+
 
 function toggleFormAndMain() {
   posterFormSection.classList.toggle("hidden")
@@ -175,11 +207,28 @@ function resetForm() {
 }
 
 function createPoster() {
-  var userPoster = new Poster(posterImageUrlInput.value, posterTitleInput.value, posterQuoteInput.value)
-  images.push(posterImageUrlInput.value)
-  titles.push(posterTitleInput.value)
-  quotes.push(posterQuoteInput.value)
-  toggleFormAndMain()
-  setMainPoster(userPoster.imageURL, userPoster.title, userPoster.quote)
+  if (emptyInputs()) {
+    alert('You didn\'t complete the form!')
+    return
+  }
+
+  var imageURL = posterImageUrlInput.value
+  var title = posterTitleInput.value
+  var quote = posterQuoteInput.value
+
+  images.push(imageURL)
+  titles.push(title)
+  quotes.push(quote)
+
+  setMainPoster(imageURL, title, quote)
   resetForm()
+  toggleFormAndMain()
+}
+
+function emptyInputs() {
+  var imgMissing = posterImageUrlInput.value.length === 0
+  var titleMissing = posterTitleInput.value.length === 0
+  var quoteMissing = posterQuoteInput.value.length === 0
+
+  return imgMissing || titleMissing || quoteMissing
 }
