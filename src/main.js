@@ -142,6 +142,12 @@ makePosterButton.addEventListener('click', function(event) {
   createPoster()
 }, true)
 
+savedPostersGrid.addEventListener("dblclick", function(event) {
+  if(event.target && event.target.nodeName == "DIV") {
+    deleteSavedPoster(event.target.id)
+   }
+});
+
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 
@@ -152,16 +158,22 @@ function getRandomIndex(array) {
 function saveCurrentPoster() {
   if (!posterSavedAlready()) {
     savedPosters.push(currentPoster)
-    savedPostersGrid.innerHTML += `
-    <div class="mini-poster">
-    <img src="${currentPoster.imageURL}" alt="nothin' to see here">
-    <h2>${currentPoster.title}</h2>
-    <h4>${currentPoster.quote}</h4>
+  }
+  displaySavedPosters()
+}
+
+function displaySavedPosters() {
+  var htmlString = ''
+  for (var i = 0; i < savedPosters.length; i++) {
+    htmlString += `
+    <div id="${savedPosters[i].id}" class="mini-poster">
+    <img src="${savedPosters[i].imageURL}" alt="nothin' to see here">
+    <h2>${savedPosters[i].title}</h2>
+    <h4>${savedPosters[i].quote}</h4>
     </div>
     `
   }
-
-  toggleSavedAndMain()
+  savedPostersGrid.innerHTML = htmlString
 }
 
 function posterSavedAlready() {
@@ -231,4 +243,13 @@ function emptyInputs() {
   var quoteMissing = posterQuoteInput.value.length === 0
 
   return imgMissing || titleMissing || quoteMissing
+}
+
+function deleteSavedPoster(id) {
+  for (var i = 0; i < savedPosters.length; i++) {
+    if (savedPosters[i].id == id) {
+      savedPosters.splice(i, 1)
+    }
+  }
+  displaySavedPosters()
 }
