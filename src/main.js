@@ -19,7 +19,7 @@ var posterImageUrlInput = document.querySelector('#poster-image-url')
 var posterTitleInput = document.querySelector('#poster-title')
 var posterQuoteInput = document.querySelector('#poster-quote')
 
-var savedPostersGrid = document.querySelector('.saved-posters-grid')
+
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -150,24 +150,11 @@ function getRandomIndex(array) {
 }
 
 function saveCurrentPoster() {
+var savedPostersGrid = document.querySelector('.saved-posters-grid')
   if (!posterSavedAlready()) {
     savedPosters.push(currentPoster)
     savedPostersGrid.appendChild(generateMiniPosterHTML())
   }
-}
-
-function generateMiniPosterHTML() {
-  var currentPosterDIV = document.createElement('div')
-  currentPosterDIV.setAttribute('id', currentPoster.id)
-  currentPosterDIV.setAttribute('class', 'mini-poster')
-  currentPosterDIV.innerHTML = `
-    <img src="${currentPoster.imageURL}" alt="nothin' to see here">
-    <h2>${currentPoster.title}</h2>
-    <h4>${currentPoster.quote}</h4>
-  `
-  currentPosterDIV.addEventListener('dblclick', deleteSavedPoster)
-
-  return currentPosterDIV;
 }
 
 function posterSavedAlready() {
@@ -177,6 +164,21 @@ function posterSavedAlready() {
     }
   }
   return false
+}
+
+function generateMiniPosterHTML() {
+  var currentPosterDIV = document.createElement('div')
+  currentPosterDIV.setAttribute('id', currentPoster.id)
+  currentPosterDIV.setAttribute('class', 'mini-poster')
+
+  currentPosterDIV.innerHTML = `
+    <img src="${currentPoster.imageURL}" alt="nothin' to see here">
+    <h2>${currentPoster.title}</h2>
+    <h4>${currentPoster.quote}</h4>
+  `
+  currentPosterDIV.addEventListener('dblclick', deleteSavedPoster)
+
+  return currentPosterDIV;
 }
 
 function setMainPoster(imageURL, title, quote) {
