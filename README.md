@@ -46,6 +46,8 @@ A boilerplate repo.
 
 ## Illustrations
 ---
+<img width="1090" alt="Screen Shot 2022-04-03 at 12 18 22 PM" src="https://user-images.githubusercontent.com/98445902/161442282-d2c03fa4-ef08-48ee-9a07-64066c564507.png">
+
 * Watch how our project functions with the link below!
 https://www.loom.com/share/8eb07e3f466649e98d742934fd0f5a2b
 
