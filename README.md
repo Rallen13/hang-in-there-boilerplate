@@ -46,6 +46,8 @@ A boilerplate repo.
 
 ## Illustrations
 ---
+* Watch how our project functions with the link below!
+https://www.loom.com/share/8eb07e3f466649e98d742934fd0f5a2b
 
 ## Deployed Page
 ---
@@ -54,12 +56,31 @@ A boilerplate repo.
 ## Possible Future Extensions
 ---
 * Make a favorite posters section
+* Alert after poster is deleted
+* Give users the option to update parts of each saved poster (i.e. just change the image, title, or quote.)
+* Put more time into the CSS styling
+  * background colors
+  * different fonts
+  * different font colors
+  * change button colors when user hovers over them
+* Add headings
 
 ## Set Up
 ---
 1. Fork this repo
 2. Clone the repo to your local machine
-3. View the project in the browser by running open index.html  in your terminal.
+3. View the project in the browser by running open index.html  in your terminal
+
+## What We Learned / Takeaways
+* We learned how to write clean, DRY JavaScript
+  * Were able to use a provided class by creating object instances using the 'new' keyword
+  * Manipulated the page after it loaded
+* We have a better understanding of the connection between HTML, CSS and JavaScript
+* How to utilize the console in chrome dev tools to test our work
+* We built an understanding of writing code collaboratively
+* We learned we need to commit our work more often
+* We learned the importance of documenting in Github with the code review before merging a PR  
+* Got more comfortable with using git commands and the Git workflow
 
 ## Sources
 ---
