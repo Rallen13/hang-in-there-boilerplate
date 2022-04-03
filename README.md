@@ -46,6 +46,8 @@ A boilerplate repo.
 
 ## Illustrations
 ---
+* Watch how our project functions with the link below!
+https://www.loom.com/share/8eb07e3f466649e98d742934fd0f5a2b
 
 ## Deployed Page
 ---
