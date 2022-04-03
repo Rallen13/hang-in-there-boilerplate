@@ -71,12 +71,16 @@ https://www.loom.com/share/8eb07e3f466649e98d742934fd0f5a2b
 2. Clone the repo to your local machine
 3. View the project in the browser by running open index.html  in your terminal
 
-## What We Learned
+## What We Learned / Takeaways
 * We learned how to write clean, DRY JavaScript
+  * Were able to use a provided class by creating object instances using the 'new' keyword
+  * Manipulated the page after it loaded
 * We have a better understanding of the connection between HTML, CSS and JavaScript
+* How to utilize the console in chrome dev tools to test our work
 * We built an understanding of writing code collaboratively
 * We learned we need to commit our work more often
 * We learned the importance of documenting in Github with the code review before merging a PR  
+* Got more comfortable with using git commands and the Git workflow
 
 ## Sources
 ---
