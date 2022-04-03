@@ -58,6 +58,12 @@ https://www.loom.com/share/8eb07e3f466649e98d742934fd0f5a2b
 * Make a favorite posters section
 * Alert after poster is deleted
 * Give users the option to update parts of each saved poster (i.e. just change the image, title, or quote.)
+* Put more time into the CSS styling
+  * background colors
+  * different fonts
+  * different font colors
+  * change button colors when user hovers over them
+* Add headings
 
 ## Set Up
 ---
